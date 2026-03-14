@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "VulnFinder",
+  "description": "Google'da CVE aramaları yaptığında zafiyet açıklaması, PoC ve CVSS gibi özet bilgiler gösterir.",
+  "version": "1.0.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://cve.circl.lu/*",
+    "https://cveawg.mitre.org/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/search*",
+        "https://www.google.com.tr/search*"
+      ],
+      "js": [
+        "content-script.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
